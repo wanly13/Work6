@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pokemon-delete</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pokemons"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button color="secondary" expand="block" [routerLink]="['/pokemons/view',pokemon_id]">Cancel</ion-button>
+        <ion-button color="danger" expand="block" (click)="deletePokemon(id)">Delete</ion-button>
+      </ion-col>
+    </ion-row>
+     
+
+  </ion-grid>
+ 
+</ion-content>

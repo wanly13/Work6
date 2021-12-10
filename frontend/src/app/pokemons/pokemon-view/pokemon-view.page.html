@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pokemons"></ion-back-button>
+    
+    </ion-buttons>
+    <ion-title>pokemon-view</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngFor="let item of date_pokemon">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons *ngIf="item">
+        <ion-button [routerLink]="['/pokemons/edit',item.id]">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons *ngIf="item" slot="primary">
+        <ion-button [routerLink]="['/pokemons/delete',item.id]">
+          <ion-icon  name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title *ngIf="item">My Pokemon</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <br>
+  <ion-card color="light">    
+    <div class="img-wrapper" >
+      <img  [src]="'http://localhost:3000/'+ item.image_p" />
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="camera-outline" color="medium">
+        </ion-icon>
+      </ion-button>
+    </div>
+    <ion-card-content class="ion-text-center" >
+      <h1>{{item.nickname_p}}</h1>
+      <ion-text color="medium">
+        <div style="display: flex;" class="ion-justify-content-center">
+          
+          <ion-icon name="logo-alipay"></ion-icon>
+          <p>{{item.name_p}}</p>
+          <ion-icon name="logo-alipay"></ion-icon>
+        </div>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col><b>Category:</b> </ion-col>
+      <ion-col>{{item.category_p}}</ion-col>
+      <ion-col><b>Abilities:</b> </ion-col>
+      <ion-col>{{item.abilities_p}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><b>Height:</b> </ion-col>
+      <ion-col>{{item.height_p}}</ion-col>
+      <ion-col><b>Weight:</b> </ion-col>
+      <ion-col>{{item.weight_p}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><b>Type:</b> </ion-col>
+      <ion-col>{{item.type_p}}</ion-col>
+      <ion-col> </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
